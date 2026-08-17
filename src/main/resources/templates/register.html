@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+<h1>Criar conta</h1>
+
+<form th:action="@{/register}" th:object="${user}" method="post">
+
+    <div>
+        <label>Nome</label>
+        <input type="text" th:field="*{name}">
+
+        <p th:if="${#fields.hasErrors('name')}"
+           th:errors="*{name}"></p>
+    </div>
+
+    <div>
+        <label>E-mail</label>
+        <input type="email" th:field="*{email}">
+
+        <p th:if="${#fields.hasErrors('email')}"
+           th:errors="*{email}"></p>
+    </div>
+
+    <div>
+        <label>Senha</label>
+        <input type="password" th:field="*{password}">
+
+        <p th:if="${#fields.hasErrors('password')}"
+           th:errors="*{password}"></p>
+    </div>
+
+    <button type="submit">Cadastrar</button>
+
+</form>
+
+</body>
+</html>
